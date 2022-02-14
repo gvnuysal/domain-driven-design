@@ -38,5 +38,10 @@ namespace Order.Domain.SeedWork
         {
             return GetEqualityComponents().Select(x => x != null ? x.GetHashCode() : 0).Aggregate((x, y) => x ^ y);
         }
+
+        public ValueObject GetCopy()
+        {
+            return MemberwiseClone() as ValueObject;
+        }
     }
 }
